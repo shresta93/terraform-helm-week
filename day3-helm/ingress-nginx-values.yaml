@@ -1,0 +1,19 @@
+# Overrides for the public ingress-nginx chart.
+# This is NOT a full values file - it's the small set of defaults worth
+# overriding for a single small node. Everything else falls back to the
+# chart's own defaults. See what's available with:
+#   helm show values ingress-nginx/ingress-nginx | less
+
+controller:
+  replicaCount: 1 # we have one node - more replicas wouldn't schedule anywhere else anyway
+
+  resources:
+    requests:
+      cpu: 100m
+      memory: 90Mi
+    limits:
+      cpu: 200m
+      memory: 180Mi
+
+  service:
+    type: LoadBalancer # provisions a real Azure Load Balancer + public IP - see cost note in DAY3.md
