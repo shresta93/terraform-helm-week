@@ -78,3 +78,11 @@ module "aks" {
   location            = azurerm_resource_group.main.location
   acr_id              = azurerm_container_registry.main.id
 }
+
+module "postgres" {
+  source              = "./modules/postgres"
+  prefix              = var.prefix
+  suffix              = random_string.suffix.result
+  resource_group_name = azurerm_resource_group.main.name
+  location            = "eastus2"
+}

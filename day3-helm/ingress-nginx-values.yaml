@@ -16,4 +16,6 @@ controller:
       memory: 180Mi
 
   service:
-    type: LoadBalancer # provisions a real Azure Load Balancer + public IP - see cost note in DAY3.md
+    type: LoadBalancer
+    annotations:
+      service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path: /healthz # provisions a real Azure Load Balancer + public IP - see cost note in DAY3.md

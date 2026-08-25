@@ -1,0 +1,12 @@
+# Fill in your actual ACR login server (from Day 1's output: acr_login_server)
+# then: helm install taskapi ./taskapi-chart -f values-override.yaml
+
+image:
+  repository: "tfhelmacrg9u9sc.azurecr.io/task-api" # e.g. tfhelmacrxxxxxx.azurecr.io/task-api
+  tag: "v1"
+
+databaseSecretName: taskapi-db
+
+ingress:
+  enabled: true
+  host: "4-255-121-182.nip.io"
