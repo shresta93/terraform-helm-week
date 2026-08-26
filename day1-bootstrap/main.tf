@@ -39,7 +39,8 @@ resource "azurerm_resource_group" "main" {
   location = var.location
 
   tags = {
-    project = "terraform-helm-week"
+    project = "terraform-helm-week",
+    ci = "true"
   }
 }
 
