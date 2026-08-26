@@ -28,6 +28,7 @@ resource "azurerm_postgresql_flexible_server" "main" {
   tags = {
     project = "terraform-helm-week"
   }
+  lifecycle { ignore_changes = [zone] }
 }
 
 # Learning-project-simple, not production-grade: this allows any Azure
