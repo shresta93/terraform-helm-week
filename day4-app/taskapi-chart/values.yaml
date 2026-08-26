@@ -1,0 +1,42 @@
+image:
+  repository: "" # set for real in values-override.yaml - see DAY4.md
+  tag: "v1"
+  pullPolicy: IfNotPresent
+
+replicaCount: 2
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+  limits:
+    cpu: 200m
+    memory: 128Mi
+
+service:
+  port: 80
+  targetPort: 8080
+
+probes:
+  liveness:
+    path: /healthz
+    initialDelaySeconds: 5
+    periodSeconds: 10
+  readiness:
+    path: /healthz
+    initialDelaySeconds: 5
+    periodSeconds: 10
+
+# Not set today - Day 5 wires in a real Kubernetes Secret name here once
+# managed Postgres exists. Left as a hook so the template is ready for it
+# without needing changes later.
+databaseSecretName: ""
+
+ingress:
+  enabled: false # Day 5 turns this on via values-override.yaml
+  className: nginx # matches the IngressClass the Day 3 chart creates by default
+  host: ""
+
+# Escape hatch for any plain (non-secret) env vars you want to inject later.
+env:
+  extra: {}
