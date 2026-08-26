@@ -5,7 +5,7 @@ from contextlib import contextmanager
 from flask import Flask, jsonify, request
 import psycopg2
 import psycopg2.extras
-
+#adding a test comment
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
