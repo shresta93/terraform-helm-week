@@ -40,7 +40,7 @@ resource "azurerm_resource_group" "main" {
 
   tags = {
     project = "terraform-helm-week",
-    ci = "true"
+    ci = "false"
   }
 }
 
